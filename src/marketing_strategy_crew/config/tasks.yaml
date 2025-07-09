@@ -1,0 +1,32 @@
+research_task: &research_template
+  description: >
+    Research the company named "{company_name}". Use SerperDevTool to extract the following:
+    - Current and previous telecom providers
+    - Type of telecom services used (e.g., broadband, mobile, VoIP)
+    - User sentiment and pain points
+    - Known complaints or switching indicators
+    - Social media mentions or news events
+    Return your findings as structured JSON with fields:
+    company_name, current_telecom_provider, previous_telecom_provider, service_type,
+    user_sentiment, platform_source, engagement_indicators, recent_news_and_events,
+    pain_points, opportunities, last_updated, and source_links.
+  expected_output: >
+    JSON object with above fields and factual data found using Serper. Always include real source URLs.
+  agent: senior_market_researcher
+
+analyst_task:
+  description: >
+    Analyze and review the structured data from the researcher to identify the top {required_count} SMBs with 
+    the highest likelihood of switching telecom providers or showing unmet needs. Use criteria such as 
+    dissatisfaction signals, growth indicators, and telecom usage intensity. Generate a concise report 
+    recommending these companies for targeted promotions and propose customized telecom package suggestions. 
+    Make sure the report has a section for each SMB identified and contains all relevant and factual 
+    information but do not hallucinate or make up numbers.
+  expected_output: >
+    A full fledge report as structured json with the top {required_count} SMBs identified, 
+    with full information. The report shall include but not limited to names of the SMBs, comparative 
+    metrics (e.g., churn risk, engagement signals, current provider rating), source link for information / data, 
+    rationale / brief explanation for selection based on metrics and tailored telecom package suggestions.
+  agent: senior_marketing_analyst
+  context: 
+  - research_task
