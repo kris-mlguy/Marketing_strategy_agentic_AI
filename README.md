@@ -7,4 +7,4 @@ WIP - A multi-agent system for real-world marketing strategy problem
     3. Create a conda environment: conda create -n agentic_ai_env
     4. Activate the environment: conda activate agentic_ai_env
     5. Install other dependent libraries: pip install -r requirements.txt
-    6. Run the crew: crewai run
+    6. Run the multi-agent system: crewai run
